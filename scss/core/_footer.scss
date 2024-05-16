@@ -1,0 +1,114 @@
+.footer {
+  background: $bg-gray;
+  padding: 20px 30px 50px 30px;
+  display: flex;
+  justify-content: space-between;
+  @include sm {
+    display: flex;
+    flex-direction: column;
+  }
+  &__left {
+    display: flex;
+    gap: 80px;
+    @include sm {
+      gap: 40px;
+      flex-direction: column;
+    }
+    &--item {
+      .title {
+        display: block;
+        width: max-content;
+        @include text(0.875rem, 600, 24px, $black-cl, null);
+        @include sm {
+          font-size: 1rem;
+        }
+      }
+      .list {
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        a {
+          width: max-content;
+          @include text(0.75rem, 400, 1.33, $black-cl, null);
+          &::after {
+            content: "";
+            display: block;
+            height: 1px;
+            min-width: max-content;
+            background: $bg-green;
+            @include transform(scale(0));
+            @include transform-origin(left center);
+            @include transition(0.5s);
+          }
+          &:hover {
+            &::after {
+              @include transform(scale(1));
+              @include transition(0.5s);
+              @include transform-origin(left center);
+            }
+          }
+          @include sm {
+            @include text(0.875rem, 400, 1.2, $black-cl, null);
+          }
+        }
+      }
+    }
+  }
+  &__right {
+    @include sm {
+      padding-top: 30px;
+    }
+    &--title {
+      @include text(0.875rem, 600, 24px, $black-cl, null);
+      @include sm {
+        font-size: 1rem;
+      }
+    }
+    &--des {
+      padding: 30px 0 50px;
+      @include text(0.75rem, 400, 16px, $black-cl, null);
+      max-width: 315px;
+      @include sm {
+        @include text(0.875rem, 400, 1.2, $black-cl, null);
+      }
+    }
+    &--input {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid $black-cl;
+      outline: none;
+      background: transparent;
+      padding: 10px 5px;
+    }
+    &--signUp {
+      max-width: 120px;
+      margin: 30px 0;
+      display: flex;
+      padding: 10px 25px;
+      border: 1px solid $black-cl;
+      background-color: #fff;
+      align-items: center;
+      justify-content: center;
+      @include text(0.875rem, 600, 1.14rem, $black-cl, null);
+      @include sm {
+        padding: 15px 27px;
+        font-size: 1rem;
+      }
+      @include transition($t);
+      &:hover {
+        background: $bg-green;
+        color: $white-cl;
+        border: 1px solid $bg-green;
+        @include transition($t);
+      }
+    }
+    &--social {
+      display: flex;
+      gap: 30px;
+      a i {
+        font-size: 30px;
+      }
+    }
+  }
+}

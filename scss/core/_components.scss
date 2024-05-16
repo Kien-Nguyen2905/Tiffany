@@ -1,0 +1,60 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  color: $white-cl;
+  &.--second {
+    color: $black-cl;
+    gap: 5px;
+  }
+  .title {
+    @include text(1.5rem, 600, 1.33, null, null);
+  }
+  .des {
+    @include text(0.875rem, 400, 1.71rem, null, null);
+  }
+}
+.content-box {
+  max-width: 317px;
+  text-align: center;
+  color: $white-cl;
+  &.--black {
+    color: $black-cl;
+    .btn__about {
+      color: $black-cl;
+      &::after {
+        background: $black-cl;
+      }
+    }
+  }
+  .title {
+    @include text(1.5rem, 600, 1.33, null, null);
+  }
+  .des {
+    @include text(0.875rem, 300, 1.71, null, null);
+    padding: 10px 0 30px;
+  }
+  .btn__about {
+    display: inline-block;
+    @include text(0.875rem, 400, 1.71, $white-cl, null);
+    &::after {
+      content: "";
+      display: block;
+      height: 1px;
+      min-width: max-content;
+      background: $white-cl;
+      @include transform(scale(0));
+      @include transform-origin(left center);
+      @include transition(0.5s);
+    }
+    &:hover {
+      &::after {
+        @include transform(scale(1));
+        @include transition(0.5s);
+        @include transform-origin(left center);
+      }
+    }
+  }
+}

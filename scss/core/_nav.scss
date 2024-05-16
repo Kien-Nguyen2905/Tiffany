@@ -1,0 +1,44 @@
+.nav {
+  border-top: 0.5px solid $black-cl;
+  width: 100%;
+  height: calc(100vh - var(--height-header));
+  background-color: $white-cl;
+  z-index: 100;
+  position: fixed;
+  top: var(--height-header);
+  @include transition(0.4s cubic-bezier(0.59, 0.35, 0.15, 0.99));
+  clip-path: inset(0 0 100% 0);
+  padding: 20px 24px;
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    li {
+      a {
+        @include text(0.875rem, 400, 1.71, $black-cl, null);
+      }
+    }
+  }
+  &__bottom {
+    border-top: 1px solid $black-cl;
+    margin-top: 30px;
+    li {
+      padding-top: 30px;
+      a {
+        @include text(0.875rem, 400, 1.71, $black-cl, null);
+      }
+    }
+  }
+  @include md {
+    --height-header: 54px;
+  }
+  &.active {
+    clip-path: inset(0 0 0 0);
+    @include transition(0.4s cubic-bezier(0.59, 0.35, 0.15, 0.99));
+  }
+}
+body {
+  &.active {
+    overflow-y: hidden;
+  }
+}

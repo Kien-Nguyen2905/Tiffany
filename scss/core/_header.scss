@@ -1,0 +1,186 @@
+.header {
+  position: fixed;
+  z-index: 100;
+  right: 0;
+  left: 0;
+  padding: 16px 24px;
+  background: $white-cl;
+  height: var(--height-header);
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    &--left {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      .btnmenu {
+        cursor: pointer;
+        display: none;
+        background: transparent;
+        width: 28px;
+        height: 22px;
+        position: relative;
+        z-index: 300;
+        span {
+          width: 100%;
+          height: 1px;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          display: block;
+          background: $black-cl;
+        }
+        &::after,
+        &::before {
+          content: "";
+          width: 100%;
+          height: 1px;
+          display: block;
+          background: $black-cl;
+          @include transition(transform 0.3s);
+        }
+        &::after {
+          position: absolute;
+          bottom: 0;
+        }
+        &.active {
+          &::before {
+            @include transform(rotate(45deg) translate(6px, 8px));
+            @include transition(transform 0.3s);
+          }
+          span {
+            opacity: 0;
+            @include transition(transform 0.3s);
+          }
+          &::after {
+            @include transform(rotate(-45deg) translate(6px, -8px));
+            @include transition(transform 0.3s);
+          }
+        }
+      }
+      .contact {
+        .contact-text {
+          padding-left: 5px;
+          @include text(0.85rem, 400, 16px, $black-cl, null);
+        }
+      }
+      @include sm {
+        gap: 20px;
+        .icon-search {
+          display: none;
+        }
+        .icon-location {
+          display: none;
+        }
+        .contact {
+          display: none;
+        }
+      }
+    }
+    &--middle {
+      @include mid;
+      a {
+        display: inline-block;
+        width: 192px;
+      }
+      @include sm {
+        left: 47%;
+        a {
+          width: 150px;
+        }
+      }
+    }
+    &--right {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+      .appointment {
+        .appointment-text {
+          padding-left: 5px;
+          @include text(0.85rem, 400, 16px, $black-cl, null);
+          @include sm {
+            display: none;
+          }
+        }
+      }
+      .information {
+        display: flex;
+        gap: 40px;
+        @include sm {
+          gap: 20px;
+        }
+      }
+      @include sm {
+        gap: 10px;
+        .appointment {
+          display: none;
+        }
+        .information {
+          .icon-person {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  &__bottom {
+    padding-top: 25px;
+    @include mid(true);
+    &--menu {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a {
+          @include text(0.875rem, 300, 21px, $black-cl, null);
+          display: block;
+          &:last-child {
+            padding-right: 10px;
+          }
+          &:first-child {
+            padding-left: 10px;
+          }
+          &::after {
+            content: "";
+            display: block;
+            height: 1px;
+            min-width: max-content;
+            background: $bg-green;
+            @include transform(scale(0));
+            @include transform-origin(left center);
+            @include transition(0.5s);
+          }
+          &:hover {
+            &::after {
+              @include transform(scale(1));
+              @include transition(0.5s);
+              @include transform-origin(left center);
+            }
+          }
+        }
+      }
+      @include md {
+        gap: 27px;
+      }
+    }
+  }
+  @include sm {
+    &__top {
+      &--left {
+        .btnmenu {
+          display: block;
+        }
+      }
+    }
+    &__bottom {
+      display: none;
+    }
+    --height-header: 54px;
+  }
+}

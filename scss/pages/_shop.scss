@@ -1,0 +1,62 @@
+.shop {
+  padding: 120px 0;
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 450px);
+    grid-column-gap: 30px;
+    grid-row-gap: 50px;
+    @include sm {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include xs {
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 25px;
+    }
+    @include xxs {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    &--item {
+      .item-imge {
+        height: 280px;
+        display: block;
+        overflow: hidden;
+        position: relative;
+        @include sm {
+          height: 230px;
+        }
+        img {
+          @include midimg;
+          transform: translate(-50%, -50%) scale(1);
+          @include transition($t);
+          &:hover {
+            transform: translate(-50%, -50%) scale(1.2);
+            @include transition($t);
+          }
+        }
+      }
+      .item-title {
+        padding-top: 20px;
+        @include text(1rem, 600, 1, $black-cl, null);
+      }
+      .item-price {
+        padding: 20px 0 30px;
+        @include text(1rem, 400, 1, $black-cl, null);
+      }
+      .item-buy {
+        display: block;
+        width: max-content;
+        padding: 10px 20px;
+        border: 1px solid $black-cl;
+        @include text(1rem, 400, 1, $black-cl, null);
+        transition: all 0.3s ease-in-out;
+        border: 1px solid black;
+        box-shadow: 0 0 0 0 black;
+        &:hover {
+          transform: translateY(-4px) translateX(-2px);
+          box-shadow: 2px 5px 0 0 black;
+        }
+      }
+    }
+  }
+}
