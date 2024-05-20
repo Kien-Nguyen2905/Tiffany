@@ -17,6 +17,10 @@
       grid-template-columns: repeat(1, 1fr);
     }
     &--item {
+      // box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      // --main-color: #323232;
+      // border: 2px solid var(--main-color);
+      // box-shadow: 4px 4px var(--main-color);
       .item-imge {
         height: 280px;
         display: block;
@@ -39,8 +43,14 @@
         padding-top: 20px;
         @include text(1rem, 600, 1, $black-cl, null);
       }
+      .item-center {
+        padding-right: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
       .item-price {
-        padding: 20px 0 30px;
+        padding: 25px 0 30px;
         @include text(1rem, 400, 1, $black-cl, null);
       }
       .item-buy {

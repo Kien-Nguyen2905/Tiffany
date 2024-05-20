@@ -26,7 +26,6 @@
           <div class="btnmenu">
             <span></span>
           </div>
-          <a href="" class="icon-search"><i class="bi bi-search"></i></a>
           <a href="" class="icon-location"><i class="bi bi-geo-alt"></i></a>
           <div class="contact">
             <a href=""><i class="bi bi-telephone"></i></a>
@@ -87,9 +86,15 @@
             <span class="signin__left--title"
               >Please sign in to your Tiffany Account.</span
             >
-            <form action="">
-              <input type="text" placeholder="Email" />
-              <input type="text" placeholder="Password" />
+            <form action="" class="form">
+              <input class="input-email" type="text" placeholder="Email" />
+              <span class="text-email-error">Vui lòng nhập email</span>
+              <input
+                class="input-password"
+                type="text"
+                placeholder="Password"
+              />
+              <span class="text-password-error">Vui lòng nhập password</span>
               <a class="btn-authen" href="">Login</a>
             </form>
           </div>

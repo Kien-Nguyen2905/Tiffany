@@ -37,6 +37,9 @@
         outline: none;
         background: transparent;
         padding: 10px 5px;
+        &.active {
+          border-bottom: 1px solid red;
+        }
       }
     }
     @include xxs {
@@ -58,5 +61,25 @@
   }
   @include sm {
     padding: 90px 0;
+  }
+}
+.text-email-error {
+  color: red;
+  font-weight: 600;
+  display: none;
+  visibility: hidden;
+  &.active {
+    display: block;
+    visibility: visible;
+  }
+}
+.text-password-error {
+  color: red;
+  font-weight: 600;
+  display: none;
+  visibility: hidden;
+  &.active {
+    display: block;
+    visibility: visible;
   }
 }

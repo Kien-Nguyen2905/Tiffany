@@ -70,3 +70,41 @@ navigattion = () => {
   });
 };
 navigattion();
+
+validateSignIn = () => {
+  const btnSubmit = document.querySelector(".btn-authen");
+  const email = document.querySelector(".input-email");
+  const password = document.querySelector(".input-password");
+  const emailError = document.querySelector(".text-email-error");
+  const passwordError = document.querySelector(".text-password-error");
+
+  btnSubmit?.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (email.value.trim() == "") {
+      email.classList.toggle("active");
+      emailError.classList.toggle("active");
+    }
+    if (password.value.trim() == "") {
+      password.classList.toggle("active");
+      passwordError.classList.toggle("active");
+    }
+  });
+};
+validateSignIn();
+
+backToTop = (e) => {
+  const backToTop = document.querySelector(".backToTop");
+  window.addEventListener("scroll", () => {
+    let y = window.scrollY;
+    if (y > document.body.offsetHeight / 2) {
+      backToTop.classList.add("active");
+    } else {
+      backToTop.classList.remove("active");
+    }
+  });
+  backToTop.addEventListener("click", () => {
+    window.scrollTo(0, 0);
+  });
+};
+backToTop();
